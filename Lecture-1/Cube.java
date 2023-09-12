@@ -1,7 +1,7 @@
-public class cube {
+public class Cube {
     public static void main(String[] args) {
         int num = 4;
         System.out.println("Number = " + 4);
-        System.out.println("cube of the number = " + num*num*num);
+        System.out.println("Cube of the number = "+ num*num*num);
     }
 }
