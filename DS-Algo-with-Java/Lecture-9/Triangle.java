@@ -1,16 +1,23 @@
+class Test {
+    int a, b, c;
+
+    public double getArea() {
+        double s = (a + b + c) / 2.0;
+        return Math.sqrt((s * (s - a) * (s - b) * (s - c)));
+    }
+
+    public double getPerimeter() {
+        return (a + b + c) / 2.0;
+    }
+}
+
 public class Triangle {
-    int a = 3;
-    int b = 4;
-    int c = 5;
-
-    public static void main(String[] args) {
-        Triangle obj = new Triangle();
-
-        int perimeter = obj.a + obj.b + obj.c;
-        int s = perimeter/2;
-        double area = Math.sqrt(s * (s - obj.a) * (s - obj.b) * (s - obj.c));
-
-        System.out.println(perimeter);
-        System.out.println((int) area);
+    public static void main(String[] args){
+        Test obj = new Test();
+        obj.a = 2;
+        obj.b = 5;
+        obj.c = 6;
+        System.out.println(obj.getArea());
+        System.out.println(obj.getPerimeter());
     }
 }

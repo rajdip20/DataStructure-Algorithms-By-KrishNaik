@@ -1,23 +1,31 @@
 import java.util.Scanner;
 
+class Test{
+    int length;
+    int breadth;
+    public Test(int l, int b){
+        length = l;
+        breadth = b;
+    }
+    public int getArea(){
+        return length*breadth;
+    }
+}
+
+
 public class Area {
-    public static void main(String[] args) {
+    public static void main(String[] args){
         try (Scanner sc = new Scanner(System.in)) {
+            int l,b;
 
             System.out.print("Enter length: ");
-            int length = sc.nextInt();
+            l = sc.nextInt();
+            System.out.print("Enter breadth: ");
+            b = sc.nextInt();
 
-            System.out.print("Enter Breadth: ");
-            int breadth = sc.nextInt();
+            Test obj = new Test(l,b);
 
-            int area = returnArea(length, breadth);
-
-            System.out.println("Area is: " + area);
+            System.out.println("Area: " + obj.getArea());
         }
-    }
-
-    private static int returnArea(int length, int breadth) {
-        int area = length * breadth;
-        return area;
     }
 }

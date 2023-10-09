@@ -1,59 +1,53 @@
 import java.util.Scanner;
 
-public class Complex {
-
-    static int r1, r2, i1, i2;
-    public static void main(String[] args) {
-        try (Scanner sc = new Scanner(System.in)) {
-
-            System.out.print("Enter 1st real and imaginary number separate with space: ");
-            r1 = sc.nextInt();
-            i1 = sc.nextInt();
-
-            System.out.print("Enter 2nd real and imaginary number separate with space: ");
-            r2 = sc.nextInt();
-            i2 = sc.nextInt();
-
-            System.out.print("1st number: ");
-            Complexprint(r1, i1);
-            System.out.print("2nd number: ");
-            Complexprint(r2, i2);
-
-            add();
-            subtract();
-            multiply();
+class Calculation{
+    int real;
+    int imag;
+    public Calculation(int r, int i){
+        real = r;
+        imag = i;
+    }
+    public static Calculation add(Calculation a, Calculation b){
+        return new Calculation((a.real+b.real),(a.imag+b.imag));
+    }
+    public static Calculation diff(Calculation a, Calculation b){
+        return new Calculation((a.real-b.real),(a.imag-b.imag));
+    }
+    public static Calculation product(Calculation a, Calculation b){
+        return new Calculation(((a.real*b.real)-(a.imag*b.imag)),((a.real*b.imag)+(a.imag*b.real)));
+    }
+    public void printComplex(){
+        if(real == 0 && imag!=0){
+            System.out.println(imag+"i");
+        }
+        else if(imag == 0 && real!=0){
+            System.out.println(real);
+        }
+        else{
+            System.out.println(real+"+"+imag+"i");
         }
     }
+}
 
-    private static void multiply() {
-
-        int r_mul = (r1 * r2) - (i1 * i2);
-        int i_mul = (r1 * i2) + (i1 * r2);
-        System.out.print("Multiplication: ");
-        Complexprint(r_mul, i_mul);
-    }
-
-    private static void subtract() {
-        int r_sub = r1 - r2;
-        int i_sub = i1 - i2;
-        System.out.print("Subtraction: ");
-        Complexprint(r_sub, i_sub);
-    }
-
-    private static void add() {
-
-        int r_add = r1 + r2;
-        int i_add = i1 + i2;
-        System.out.print("Addition: ");
-        Complexprint(r_add, i_add);
-    }
-
-    private static void Complexprint(int r, int i) {
-
-        if (i < 0) {
-            System.out.println(r + " - " + (-i) + "i");
-        } else {
-            System.out.println(r + " + " + i + "i");
+class Complex{
+    public static void main(String[] args){
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Enter real part of complex number 1: ");
+            int real1 = sc.nextInt();
+            System.out.print("Enter complex part of complex number 1 without iota sign: ");
+            int comp1 = sc.nextInt();
+            System.out.print("Enter real part of complex number 2: ");
+            int real2 = sc.nextInt();
+            System.out.print("Enter complex part of complex number 2 without iota sign: ");
+            int comp2 = sc.nextInt();
+            Calculation c = new Calculation(real1, comp1);
+            Calculation d = new Calculation(real2, comp2);
+            Calculation e = Calculation.add(c,d);
+            Calculation f = Calculation.diff(c,d);
+            Calculation g = Calculation.product(c,d);
+            e.printComplex();
+            f.printComplex();
+            g.printComplex();
         }
     }
 }
