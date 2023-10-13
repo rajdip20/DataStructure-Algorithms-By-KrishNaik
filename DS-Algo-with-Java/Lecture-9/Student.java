@@ -1,4 +1,4 @@
-class Test{
+class Task{
     String name;
     int roll_no;
 }
@@ -6,7 +6,7 @@ class Test{
 
 public class Student {
     public static void main(String[] args) {
-        Test obj = new Test();
+        Task obj = new Task();
         obj.name = "John";
         obj.roll_no = 2;
         System.out.println("Name of student obj is: " + obj.name + " and roll number is: " + obj.roll_no);

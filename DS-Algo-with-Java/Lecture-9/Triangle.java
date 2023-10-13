@@ -1,4 +1,4 @@
-class Test {
+class Tri {
     int a, b, c;
 
     public double getArea() {
@@ -13,7 +13,7 @@ class Test {
 
 public class Triangle {
     public static void main(String[] args){
-        Test obj = new Test();
+        Tri obj = new Tri();
         obj.a = 2;
         obj.b = 5;
         obj.c = 6;
