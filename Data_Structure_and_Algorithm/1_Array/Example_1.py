@@ -24,4 +24,10 @@ print(stock_price)
 stock_price.remove(305)                         # Array deletion, the time complexity is O(n)
 print(stock_price)
 
-# 7. 
+# 7. Make a 2D array
+Twod_array = [[211, 123, 542],
+              [832, 623, 928],
+              [372, 988, 422]]
+
+# 8. Print 623 from the 2D array
+print(Twod_array[1][1])                         # Lookup by index, the complexity is O(1) means constant
